@@ -38,7 +38,11 @@ export default {
   },
   methods: {
     save () {
-      
+      this.$store.dispatch('createThread', {
+        forumId: this.forum['.key'],
+        title: this.title,
+        text: this.text
+      })
     }
   }
 }
