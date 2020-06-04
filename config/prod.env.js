@@ -1,12 +1,13 @@
 'use strict'
+require('dotenv').config()
 module.exports = {
-  FIREBASE_NODE_ENV: '"production"',
-  FIREBASE_API_KEY: '"AIzaSyADU1sD6hBT2Li2ZLZIRzNksfS7qD-0kzk"',
-  FIREBASE_AUTH_DOMAIN: '"vue-school-forum-d4578.firebaseapp.com"',
-  FIREBASE_DATABASE_URL: '"https://vue-school-forum-d4578.firebaseio.com"',
-  FIREBASE_PROJECT_ID: '"vue-school-forum-d4578"',
-  FIREBASE_STORAGE_BUCKET: '"vue-school-forum-d4578.appspot.com"',
-  FIREBASE_MESSAGING_SENDER_ID: '"184085520243"',
-  FIREBASE_APP_ID: '"1:184085520243:web:5b30c69b6e2b9bc1fcaf06"',
-  FIREBASE_MEASUREMENT_ID: '"G-S506VDRK3D"'
-}
+  NODE_ENV: '"production"',
+  FIREBASE_API_KEY: JSON.stringify(process.env.FIREBASE_API_KEY),
+  FIREBASE_AUTH_DOMAIN: JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+  FIREBASE_DATABASE_URL: JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+  FIREBASE_PROJECT_ID: JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+  FIREBASE_STORAGE_BUCKET: JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+  FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
+  FIREBASE_APP_ID: JSON.stringify(process.env.FIREBASE_APP_ID),
+  FIREBASE_MEASUREMENT_ID: JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID)
+};
