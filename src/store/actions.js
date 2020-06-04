@@ -115,6 +115,13 @@ export default {
   updateUser ({commit}, user) {
     commit('setUser', {userId: user['.key'], user})
   },
+  fetchAuthUser ({dispatch, commit}) {
+    const userId = firebase.auth().currentUser.uid
+    return dispatch('fetchUser', {id: userId})
+      .then(() => {
+        commit('setAuthId', userId)
+      })
+  },
   fetchCategory: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'categories', id, emoji: '📦'}),
   fetchForum: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'forums', id, emoji: '👜'}),
   fetchThread: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'threads', id, emoji: '🧻'}),
