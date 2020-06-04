@@ -16,6 +16,8 @@ export default {
     categories () {
       return Object.values(this.$store.state.categories)
     }
+  },
+  beforeCreate () {
   }
 }
 </script>
