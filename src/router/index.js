@@ -8,6 +8,7 @@ import Category from '@/pages/PageCategory'
 import Forum from '@/pages/PageForum'
 import Profile from '@/pages/PageProfile'
 import NotFound from '@/pages/PageNotFound'
+import Register from '@/pages/PageRegister'
 
 Vue.use(Router)
 
@@ -59,6 +60,12 @@ export default new Router({
       name: 'ProfileEdit',
       component: Profile,
       props: {edit: true}
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register,
+      props: true
     },
     {
       path: '*',
