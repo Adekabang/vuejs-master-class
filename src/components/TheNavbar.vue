@@ -1,6 +1,5 @@
 <template>
   <header class="header" id="header">
-
         <router-link 
           :to="{name: 'Home'}" 
           class="logo"
@@ -17,28 +16,26 @@
 
     <!-- use .navbar-open to open nav -->
     <nav class="navbar">
-        <ul>
-
-            <li class="navbar-user">
-                <router-link :to="{name: 'Profile'}">
-                    <img class="avatar-small" :src="user.avatar" alt="">
-                    <span>
-                        {{user.name}}
-                        <img class="icon-profile" src="../assets/img/arrow-profile.svg" alt="">
-                    </span>
-                </router-link>
-
-                <!-- dropdown menu -->
-                <!-- add class "active-drop" to show the dropdown -->
-                <div id="user-dropdown">
-                    <div class="triangle-drop"></div>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
-                        <li class="dropdown-menu-item"><a href="#">Log out</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+      <ul>
+        <li class="navbar-user" v-if="user">
+          <router-link :to="{name: 'Profile'}">
+            <img class="avatar-small" :src="user.avatar" alt="">
+            <span>
+              {{user.name}}
+              <img class="icon-profile" src="../assets/img/arrow-profile.svg" alt="">
+            </span>
+          </router-link>
+          <!-- dropdown menu -->
+          <!-- add class "active-drop" to show the dropdown -->
+          <div id="user-dropdown">
+            <div class="triangle-drop"></div>
+            <ul class="dropdown-menu">
+                <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
+                <li class="dropdown-menu-item"><a href="#">Log out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
 <!-- 
         <ul>
             <li class="navbar-item">
@@ -62,7 +59,7 @@
             </li>
         </ul> -->
     </nav>
-  </header>
+    </header>
 </template>
 
 <script>
