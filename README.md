@@ -1,6 +1,9 @@
 # vueschool-forum
 
 > MamiCamp2020 Mission - Forum build with VueJS
+>[Demo app](https://mohraska.com/vueschool-forum/)
+
+### Learn Source : [Vueschool.io](https://vueschool.io/)
 
 ## Build Setup
 
