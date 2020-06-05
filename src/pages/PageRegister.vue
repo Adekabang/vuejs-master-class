@@ -43,34 +43,37 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      form: {
-        name: null,
-        username: null,
-        email: null,
-        password: null,
-        avatar: null
+  export default {
+    data () {
+      return {
+        form: {
+          name: null,
+          username: null,
+          email: null,
+          password: null,
+          avatar: null
+        }
       }
-    }
-  },
-  methods: {
-    register () {
-      this.$store.dispatch('registerUserWithEmailAndPassword', this.form)
-        .then(() => this.$router.push('/'))
     },
-    registerWithGoogle () {
-      this.$store.dispatch('signInWithGoogle')
-        .then(() => this.$router.push('/'))
+    methods: {
+      register () {
+        this.$store.dispatch('auth/registerUserWithEmailAndPassword', this.form)
+          .then(() => this.successRedirect())
+      },
+      registerWithGoogle () {
+        this.$store.dispatch('auth/signInWithGoogle')
+          .then(() => this.successRedirect())
+      },
+      successRedirect () {
+        const redirectTo = this.$route.query.redirectTo || {name: 'Home'}
+        this.$router.push(redirectTo)
+      }
+    },
+    created () {
+      this.$emit('ready')
     }
-  },
-  created () {
-    this.$emit('ready')
   }
-}
 </script>
 
-<style>
-
+<style scoped>
 </style>

@@ -52,7 +52,7 @@ export default {
     updateThread ({state, commit, dispatch, rootState}, {title, text, id}) {
       return new Promise((resolve, reject) => {
         const thread = state.items[id]
-        const post = state.posts[thread.firstPostId]
+        const post = rootState.posts.items[thread.firstPostId]
 
         const edited = {
           at: Math.floor(Date.now() / 1000),
@@ -72,8 +72,8 @@ export default {
           })
       })
     },
-    fetchThread: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'threads', id, emoji: '🧻'}, {root: true}),
-    fetchThreads: ({dispatch}, {ids}) => dispatch('fetchItems', {resource: 'threads', ids, emoji: '🧻'}, {root: true})
+    fetchThread: ({dispatch}, {id}) => dispatch('fetchItem', {resource: 'threads', id, emoji: '📄'}, {root: true}),
+    fetchThreads: ({dispatch}, {ids}) => dispatch('fetchItems', {resource: 'threads', ids, emoji: '📄'}, {root: true})
   },
   mutations: {
     setThread (state, {thread, threadId}) {
