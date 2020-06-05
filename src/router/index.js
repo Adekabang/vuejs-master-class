@@ -14,7 +14,7 @@ import SignIn from '@/pages/PageSignIn'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -56,13 +56,7 @@ export default new Router({
       name: 'Profile',
       component: Profile,
       props: true,
-      beforeEnter (to, from, next) {
-        if (store.state.authId) {
-          next()
-        } else {
-          next({name: 'Home'})
-        }
-      }
+      meta: {requireAuth: true}
     },
     {
       path: '/me/edit',
@@ -98,3 +92,18 @@ export default new Router({
   ],
   mode: 'history'
 })
+
+router.beforeEach((to, from, next) => {
+  console.log(`🚥 navigating to ${to.name} from ${from.name}`)
+  if (to.matched.some(route => route.meta.requireAuth)) {
+    if (store.state.authId) {
+      next()
+    } else {
+      next({name: 'Home'})
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
